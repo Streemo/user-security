@@ -5,7 +5,10 @@ Protects the `Meteor.users` collection from client-side writes. Meteor's user co
 
 `meteor add streemo:user-security`
 
+#### Injection
+
+Literally, all this library does is inject this script into your server:
+
 ```
-//in top level lib of server
-import "streemo:user-security";
+Meteor.startup(()=>Meteor.users.deny({update:()=>true}))
 ```
